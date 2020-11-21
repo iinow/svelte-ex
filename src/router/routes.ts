@@ -1,5 +1,5 @@
 import wrap from 'svelte-spa-router/wrap'
-import * as Page from '../page'
+import * as Page from '~/page'
 
 const routes = {
   '/': wrap({
