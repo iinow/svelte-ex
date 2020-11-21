@@ -30,12 +30,14 @@ function serve() {
 }
 
 export default {
-	input: ['src/main.ts', 'src/render/main.ts'],
+	input: ['src/main.ts'],
 	output: {
 		sourcemap: true,
-		format: 'iife',
+		format: 'esm',
 		name: 'app',
-		file: 'public/build/bundle.js'
+		// file: 'public/build/bundle.js',
+    dir: 'public/build/',
+    chunkFileNames: '[name].js'
 	},
 	plugins: [
 		svelte({

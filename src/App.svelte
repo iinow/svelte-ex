@@ -1,47 +1,38 @@
 <script lang="ts">
-	import { count, newCount } from './store/NumberStore'
-	import LifeCycle from './LifeCycle.svelte'
-	import Tick from './Tick.svelte'
+  import {fade} from 'svelte/transition'
+  import {count, newCount} from './store/NumberStore'
+  import LifeCycle from './LifeCycle.svelte'
+  import Tick from './Tick.svelte'
+  import Router from 'svelte-spa-router'
+  import routes from './router/routes'
+  // import Headers from './components/Header.svelte'
 
-	export let name: string;
-	export let age: number
+  export let name: string;
+  export let age: number
 
-	let ddd: string;
+  let ddd: string;
+  let visible: boolean = true;
 
-	function clickHello() {
-		alert("Hello")
-	}
+  function clickHello() {
+    alert("Hello")
+  }
 </script>
 
-<main>
+{name}: {age}
+<!--<Headers/>-->
+<Router {routes}/>
+<!--<main>
 	<h1>Hello {name}! {age}</h1>
 	<button on:click={() => $count += 1}>클릭d</button>
 	<button on:click={newCount.increment}>new클릭</button>
+	<label>
+		<input type="checkbox" bind:checked={visible}/>
+		Visible
+	</label>
 
 	<h2>{$count}: {$newCount}</h2>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-<!--	<LifeCycle/>-->
+	{#if visible}
+		<p transition:fade>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	{/if}
 </main>
-<Tick/>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+<Tick/>-->
