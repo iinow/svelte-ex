@@ -1,6 +1,9 @@
-import Main from './Main.svelte'
+import Root from './Root.svelte'
+import adapter from 'webrtc-adapter'
 
-const app = new Main({
+adapter.disableLog(true)
+
+const app = new Root({
 	target: document.body
 });
 
