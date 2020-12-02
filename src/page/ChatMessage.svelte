@@ -1,6 +1,7 @@
 <script lang="ts">
   import {from, throwError} from 'rxjs'
   import {catchError} from "rxjs/operators";
+  import { ipcRenderer } from 'electron/renderer'
 
   let id;
   let otherId;
@@ -11,8 +12,8 @@
   }
 
   from(navigator.mediaDevices.getUserMedia({
-    audio: true,
-    // video: true
+    audio: false,
+    video: true
   }))
     .pipe(
       catchError((err) => {
@@ -29,6 +30,11 @@
       // audio.onloadedmetadata = () => audio.play();
       // audio.muted = false;
     })
+  const rtcPeerConnection = new RTCPeerConnection({
+
+  });
+
+
 </script>
 
 <h2>

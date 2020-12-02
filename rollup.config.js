@@ -7,6 +7,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import alias from '@rollup/plugin-alias';
 import path from 'path'
+import postcss from 'rollup-plugin-postcss'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -52,7 +53,7 @@ export default {
 			},
 			preprocess: sveltePreprocess(),
 		}),
-
+    postcss(),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration -

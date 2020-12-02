@@ -12,15 +12,18 @@
 
   let ddd: string;
   let visible: boolean = true;
+  let toggle: boolean = false;
 
   function clickHello() {
     alert("Hello")
   }
 </script>
 
+{#if toggle}
+  <Router {routes}/>
+{/if}
 {name}: {age}
 <!--<Headers/>-->
-<Router {routes}/>
 <!--<main>
 	<h1>Hello {name}! {age}</h1>
 	<button on:click={() => $count += 1}>클릭d</button>
